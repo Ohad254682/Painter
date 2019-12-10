@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas Ex</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body onload="init()">
+    <div class="menu">
+        <select onchange="setShape()">
+            <option value="rect">■</option>
+            <option value="triangle">▲</option>
+            <option value="circle">●</option>
+            <option value="line">⎯</option>
+        </select>
+        <input type="color" onchange="setColor()">
+        <button onclick="clearCanvas()">Clear</button>
+        <a href="#" onclick="downloadCanvas(this)" download="myCanvas.jpeg">
+            Download Img
+        </a>
+        <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" />
+        <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+            <input name="img" id="imgData" type="hidden" />
+            <button class="btn" type="submit">Publish</button>
+            <div class="share-container"></div>
+        </form>
+    </div>
+
+    <div class="canvas-container">
+        <canvas id="my-canvas" width="600px" height="600px" onmousedown="onDownPainting(event)"
+            onmousemove="draw(event)">
+            Update your browser to enjoy canvas!
+        </canvas>
+    </div>
+    <script src="JS/app.js"></script>
+</body>
+
+</html>
